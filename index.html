@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>竖向排列横向展开滑动门</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-size: 18px;
+            font-weight: 400;
+            color: #fff;
+            list-style-type: none;
+            text-decoration: none;
+            box-sizing: border-box;
+            font-family: "微软雅黑";
+            line-height: 60px;
+        }
+        body{
+            background-color: lightcoral;
+        }
+        .yijihezi{
+            width: 120px;
+            margin: 54px 0 0 60px;
+        }
+        .yijiliebiao{
+            width: 120px;
+        }
+        .yijiliebiao>li{
+            width: 120px;
+            height: 60px;
+            position: relative;
+            display: block;
+        }
+        li{
+            display: flex;
+            justify-content: center;
+        }
+        .yijiliebiao>li>a{
+            display: block;
+            position: relative;
+            z-index: 1;
+        }
+        .erjihezi{
+            position: absolute;
+            left: 120px;
+            top: 0;
+            background-color: rgb(255 255 255 / 0.8);
+            height: 60px;
+            width: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: all 300ms linear;
+        }
+        .erjihezi a{
+            color: black;
+            font-size: 16px;
+            line-height: 60px;
+        }
+        .erjiliebiao>li{
+            float: left;
+            width: 120px;
+            height: 60px;
+        }
+        .yijiliebiao>li:hover .erjihezi{
+            width: 360px;
+            opacity: 1;
+        }
+        .yijiliebiao>li>a::after{
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 120px;
+            height: 0;
+            background-color: #bb1313;
+            z-index: -1;
+            transition: all 300ms linear;
+        }
+        .yijiliebiao>li:hover a::after{
+            height: 60px;
+        }
+    </style>
+</head>
+<body>
+    <div class="yijihezi">
+        <ul class="yijiliebiao">
+            <li>
+                <a href="#">学校概况</a>
+                <div class="erjihezi">
+                    <ul class="erjiliebiao">
+                        <li><a href="#">学校简介</a></li>
+                        <li><a href="#">历史沿革</a></li>
+                        <li><a href="#">校园风光</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a href="#">机构设置</a>
+                <div class="erjihezi">
+                    <ul class="erjiliebiao">
+                        <li><a href="#">教学科研机构</a></li>
+                        <li><a href="#">职能部门</a></li>
+                        <li><a href="#">附属单位</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a href="#">教育教学</a>
+                <div class="erjihezi">
+                    <ul class="erjiliebiao">
+                        <li><a href="#">人才培养</a></li>
+                        <li><a href="#">专业建设</a></li>
+                        <li><a href="#">实践实训</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
